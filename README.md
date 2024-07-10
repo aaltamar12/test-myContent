@@ -1,5 +1,6 @@
 ## Getting Started
 
+Remember to include your credentials in the root folder credentials.json
 First, run the development server:
 
 ```bash
