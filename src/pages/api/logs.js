@@ -1,5 +1,3 @@
-// pages/api/getSheetData.js
-
 import { google } from "googleapis";
 import path from "path";
 

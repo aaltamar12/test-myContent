@@ -7,19 +7,15 @@ const arraysContainSameElements = (arr1, arr2) => {
   if (arr1.length !== arr2.length) return false;
 
   const countMap = {};
-
-  // Contar elementos en arr1
   arr1.forEach((item) => {
     countMap[item] = (countMap[item] || 0) + 1;
   });
 
-  // Restar elementos en arr2
   arr2.forEach((item) => {
     if (!countMap[item]) return false;
     countMap[item]--;
   });
 
-  // Verificar si todos los elementos están balanceados
   return Object.values(countMap).every((count) => count === 0);
 };
 

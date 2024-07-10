@@ -13,7 +13,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [uniqueNames, setUniqueNames] = useState([]);
 
-  // Paginación
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
 
@@ -29,7 +28,6 @@ export default function Home() {
       const result = await response.json();
       setAllRows(result);
 
-      // Find unique names
       const allNames = result.map((row) => row[8]);
       const uniqueNames = [...new Set(allNames)];
 
@@ -44,18 +42,14 @@ export default function Home() {
     fetchLogs();
   }, [leadId, isModalOpen]);
 
-  // Calcula el índice del primer y último elemento de la página actual
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Calcula el número total de páginas
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
-  // Cambiar de página
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Genera los números de página con puntos suspensivos
   const getPageNumbers = () => {
     let pageNumbers = [];
     const maxVisiblePages = 5;

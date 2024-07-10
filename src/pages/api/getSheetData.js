@@ -1,5 +1,3 @@
-// pages/api/getSheetData.js
-
 import { google } from "googleapis";
 import path from "path";
 
@@ -47,7 +45,7 @@ async function updateStatus(auth, row, value, selectedRow) {
     });
     const message = `Se actualizo la celda H${
       row + 2
-    } idTable:${row}  lastValue: ${selectedRow[8]}, value: ${value}`;
+    } idTable:${row}  lastValue: ${selectedRow[8]}, newValue: ${value}`;
 
     console.log({ message });
 
